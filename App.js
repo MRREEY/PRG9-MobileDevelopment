@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import {Ionicons} from '@expo/vector-icons'; //Iconen voor de tabs
 
 export default function App() {
   // Stel de huidige tab in
@@ -29,12 +30,14 @@ export default function App() {
 }
 
 // Component voor het maken van tabknoppen
-const TabButton = ({ tabName, currentTab, changeTab }) => {
+const TabButton = ({ tabName, currentTab, changeTab, iconName }) => {
   return (
     <TouchableOpacity
       style={[styles.tabButton, { backgroundColor: tabName === currentTab ? '#555' : '#333' }]}
       onPress={() => changeTab(tabName)}
     >
+      <Ionicons name={iconName} size={20} color="#fff"/>
+
       <Text style={styles.tabButtonText}>{tabName}</Text>
     </TouchableOpacity>
   );
