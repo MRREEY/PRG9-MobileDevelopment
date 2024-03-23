@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+
+//https://oblador.github.io/react-native-vector-icons/
+import {Ionicons} from '@expo/vector-icons'; //Iconen voor de tabs
 
 export default function App() {
   // Stel de huidige tab in
@@ -17,24 +20,24 @@ export default function App() {
         <Text style={styles.contentText}>Inhoud van de {currentTab} tab</Text>
       </View>
       <View style={styles.tabsContainer}>
-        <ScrollView horizontal={true}>
-          <TabButton tabName="Home" currentTab={currentTab} changeTab={changeTab} />
-          <TabButton tabName="Workouts" currentTab={currentTab} changeTab={changeTab} />
-          <TabButton tabName="Progress" currentTab={currentTab} changeTab={changeTab} />
-          <TabButton tabName="Settings" currentTab={currentTab} changeTab={changeTab} />
-        </ScrollView>
+        <TabButton tabName="Home" iconName="home" currentTab={currentTab} changeTab={changeTab} />
+        <TabButton tabName="Workouts" iconName="barbell" currentTab={currentTab} changeTab={changeTab} />
+        <TabButton tabName="Progress" iconName="stats-chart" currentTab={currentTab} changeTab={changeTab} />
+        <TabButton tabName="Settings" iconName="settings" currentTab={currentTab} changeTab={changeTab} />
       </View>
     </SafeAreaView>
   );
 }
 
 // Component voor het maken van tabknoppen
-const TabButton = ({ tabName, currentTab, changeTab }) => {
+const TabButton = ({ tabName, currentTab, changeTab, iconName }) => {
   return (
     <TouchableOpacity
       style={[styles.tabButton, { backgroundColor: tabName === currentTab ? '#555' : '#333' }]}
       onPress={() => changeTab(tabName)}
     >
+      <Ionicons name={iconName} size={20} color="#fff"/>
+
       <Text style={styles.tabButtonText}>{tabName}</Text>
     </TouchableOpacity>
   );
@@ -59,17 +62,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingVertical: 20, 
-    backgroundColor: '#222',
+    backgroundColor: '#000',
+    height: 50,
   },
   tabButton: {
-    paddingHorizontal: 20,
-    paddingVertical: 15,
+    flex: 1,
+    alignItems: "center", //Pictogram en tekst midden
+    justifyContent: "center",
     borderRadius: 5,
-    marginRight: 10,
-    marginBottom: 10,
+    marginHorizontal: 5,
+    height: 60,
   },
   tabButtonText: {
     color: '#fff',
+    fontSize: 12,
+    marginTop: 5,
   },
 });
