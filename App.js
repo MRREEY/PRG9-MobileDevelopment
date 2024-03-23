@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#222',
   },
   tabButton: {
+    alignItems: "center", //Pictogram en tekst midden
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 5,
@@ -76,5 +77,7 @@ const styles = StyleSheet.create({
   },
   tabButtonText: {
     color: '#fff',
+    fontSize: 12,
+    marginTop: 5,
   },
 });
