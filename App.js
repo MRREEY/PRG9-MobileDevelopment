@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+
+//https://oblador.github.io/react-native-vector-icons/
 import {Ionicons} from '@expo/vector-icons'; //Iconen voor de tabs
 
 export default function App() {
@@ -19,10 +21,10 @@ export default function App() {
       </View>
       <View style={styles.tabsContainer}>
         <ScrollView horizontal={true}>
-          <TabButton tabName="Home" currentTab={currentTab} changeTab={changeTab} />
-          <TabButton tabName="Workouts" currentTab={currentTab} changeTab={changeTab} />
-          <TabButton tabName="Progress" currentTab={currentTab} changeTab={changeTab} />
-          <TabButton tabName="Settings" currentTab={currentTab} changeTab={changeTab} />
+          <TabButton tabName="Home" iconName="home" currentTab={currentTab} changeTab={changeTab} />
+          <TabButton tabName="Workouts" iconName="barbell" currentTab={currentTab} changeTab={changeTab} />
+          <TabButton tabName="Progress" iconName="stats-chart" currentTab={currentTab} changeTab={changeTab} />
+          <TabButton tabName="Settings" iconName="settings" currentTab={currentTab} changeTab={changeTab} />
         </ScrollView>
       </View>
     </SafeAreaView>
