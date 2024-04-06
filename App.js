@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
 
+//More info at https://github.com/react-native-async-storage/async-storage
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 //https://oblador.github.io/react-native-vector-icons/
 import {Ionicons} from '@expo/vector-icons'; //Iconen voor de tabs
 
